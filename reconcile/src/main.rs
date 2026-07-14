@@ -3,6 +3,7 @@ mod copy_encrypt;
 mod count_document;
 mod insert_missing;
 mod read_control_file;
+mod xcom;
 
 use clap::{Parser, Subcommand};
 
@@ -55,7 +56,10 @@ enum Command {
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    tracing_subscriber::fmt::init();
+    tracing_subscriber::fmt()
+        .with_writer(std::io::stderr)
+        .init();
+
     let cli = Cli::parse();
 
     match cli.command {
