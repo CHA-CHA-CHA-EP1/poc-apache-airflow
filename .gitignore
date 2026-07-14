@@ -1,0 +1,39 @@
+# ==================== macOS ====================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ==================== Rust ====================
+reconcile/target/
+reconcile/**/*.orig
+
+# ==================== Python / Airflow ====================
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+
+# Airflow runtime files
+airflow.cfg
+airflow.db
+airflow-webserver.pid
+webserver_config.py
+logs/
+
+# ==================== Astronomer (Astro CLI) ====================
+reconcile-airflow/.astro/standalone/
+reconcile-airflow/.astro/*.local.yml
+reconcile-airflow/.astro/*.local.yaml
+reconcile-airflow/airflow_settings.yaml
+
+# ==================== Kustomize / Kubernetes ====================
+infra/overlays/local/secret-local.yaml
+kubeconfig
+
+# ==================== IDE ====================
+.idea/
+.vscode/
+*.swp
+*.swo

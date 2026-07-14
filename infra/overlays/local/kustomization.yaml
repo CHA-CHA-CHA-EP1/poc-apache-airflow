@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+  - secret-local.yaml
+patches:
+  - target:
+      kind: ExternalSecret
+      name: reconcile-mongo-creds
+    patch: |-
+      $patch: delete
+      apiVersion: external-secrets.io/v1beta1
+      kind: ExternalSecret
+      metadata:
+        name: reconcile-mongo-creds

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: reconcile-config
+  namespace: reconcile
+data:
+  s3_bucket: "digital-lending-landing"
+  mongo_db_name: "reconcile_dev"
