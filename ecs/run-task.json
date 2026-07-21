@@ -1,0 +1,11 @@
+{
+  "cluster": "my-fargate-cluster",
+  "taskDefinition": "my-fargate-app",
+  "launchType": "FARGATE",
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "subnets": ["subnet-a39525f87565d0794"],
+      "assignPublicIp": "ENABLED"
+    }
+  }
+}

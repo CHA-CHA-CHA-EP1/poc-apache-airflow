@@ -1,0 +1,29 @@
+{
+  "family": "my-fargate-app",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "reconcile-def",
+      "image": "reconcile-cli:dev",
+      "essential": true,
+      "command": [
+        "count-document",
+        "--channel",
+        "DGL",
+        "--date",
+        "2026-01-01"
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/reconcile-cli",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
